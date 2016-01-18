@@ -2,7 +2,7 @@
 
 require 'fileutils'
 
-home_path = ENV['HOME'] + '/.mantou_earth'
+home_path = ENV['HOME'] + '/.mantou_earth/scrp'
 
 FileUtils.mkdir_p home_path
 
@@ -10,6 +10,7 @@ puts "copy file"
 
 system "cp #{File.dirname(__FILE__)}/main #{home_path}/main"
 system "cp #{File.dirname(__FILE__)}/run #{home_path}/run"
+system "cp #{File.dirname(__FILE__)}/earth.scpt #{home_path}/earth.scpt"
 
 puts "gen generate regular tasks and start server"
 
