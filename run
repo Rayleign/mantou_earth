@@ -5,9 +5,9 @@ puts path
 
 IO.popen("#{path}/scrp/main") { |f| 
   name = f.gets
-  if name == "404"
-    return
+  puts name
+  if name != "404"
+    system "cd #{path} && rm `ls *.jpg | grep -v '#{name.split('/').last}'`"
+    system "cd #{path}/scrp && osascript earth.scpt"
   end
-  system "cd #{path} && rm `ls *.jpg | grep -v '#{name.split('/').last}'`"
-  system "cd #{path}/scrp && osascript earth.scpt"
 }
